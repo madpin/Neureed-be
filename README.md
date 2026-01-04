@@ -6,7 +6,7 @@ A powerful, AI-enhanced RSS feed aggregator backend built with Python and FastAP
 
 NeuReed is a next-generation RSS feed reader backend that goes beyond simple feed aggregation. It leverages modern AI/ML techniques including vector embeddings, semantic search, and personalized content scoring to help users discover and consume content more effectively.
 
-With **50+ comprehensive backend features**, NeuReed provides enterprise-grade functionality including advanced search capabilities, AI-powered personalization, system monitoring, database maintenance, and robust admin tooling for a complete content aggregation platform.
+With **51 comprehensive backend features**, NeuReed provides enterprise-grade functionality including advanced search capabilities, AI-powered personalization, system monitoring, database maintenance, robust logging and admin tooling for a complete content aggregation platform.
 
 ## ✨ Key Features
 
@@ -39,6 +39,7 @@ With **50+ comprehensive backend features**, NeuReed provides enterprise-grade f
   - **Goose3**: Advanced article extraction with metadata
   - **Playwright**: Optional JavaScript-rendered content support for dynamic sites
 - **Selective Deletion**: Feed-specific article deletion and manual pruning with deletion statistics
+- **Intelligent Update Detection**: Checks for article updates before extraction; only extracts data if not already extracted, but automatically re-extracts when article updates are detected
 
 ### 🔍 Advanced Search & Discovery
 - **Full-Text Search**: Search across titles, content, and authors
@@ -172,6 +173,18 @@ With **50+ comprehensive backend features**, NeuReed provides enterprise-grade f
 - **Rate Limiting**: API request throttling
 - **CORS Configuration**: Secure cross-origin resource sharing
 
+### 📝 Logging & Monitoring
+- **Centralized Logging**: Comprehensive system-wide logging infrastructure
+- **Log Levels**: ERROR, WARNING, INFO, and DEBUG level support
+- **Admin Dashboard**: Easy-to-use interface for log access and analysis
+- **Advanced Filtering**: Filter logs by level, timestamp, service, user, or custom criteria
+- **Debug Control**: Admin-configurable debug logging toggle for production environments
+- **Log Retention**: Configurable log retention policies with automatic cleanup
+- **Structured Logging**: JSON-formatted logs for easy parsing and analysis
+- **Real-Time Viewing**: Live log streaming for active monitoring
+- **Search Capabilities**: Full-text search across log messages
+- **Export Options**: Download logs for external analysis and archiving
+
 ### 👨‍💼 Admin Features
 - **System Management**: Global settings and configuration with validation rules
 - **User Administration**: User management, role assignment, and monitoring
@@ -184,6 +197,7 @@ With **50+ comprehensive backend features**, NeuReed provides enterprise-grade f
 - **Memory Monitoring**: Real-time heap, RSS, and memory pressure tracking with analytics dashboard
 - **Database Reset**: Admin-triggered database reset with seed data generation
 - **System Configuration**: Constraint enforcement and default value management
+- **Centralized Logging System**: Robust logging with easy admin access, filterable by level (ERROR, WARNING, INFO, DEBUG) with admin-controlled debug logging toggle
 
 ### 🚄 Performance Optimization
 - **Database Optimization**: Connection pooling, query optimization, strategic indexing
@@ -225,7 +239,7 @@ With **50+ comprehensive backend features**, NeuReed provides enterprise-grade f
 
 ## 🎯 Complete Feature Set
 
-NeuReed includes **50 comprehensive backend feature categories**:
+NeuReed includes **51 comprehensive backend feature categories**:
 
 1. Authentication & Authorization
 2. Feed Management
@@ -253,30 +267,31 @@ NeuReed includes **50 comprehensive backend feature categories**:
 24. Article Cleanup
 25. Admin Features
 26. Security Features
-27. API Endpoints
-28. Database Operations
-29. Offline Support
-30. Error Handling & Logging
-31. Performance Optimization
-32. Analytics & Insights
-33. Search Query Templates
-34. Article Suggestions & Autocomplete
-35. Hybrid Search
-36. Memory Monitoring & Management
-37. Database Maintenance Operations
-38. Redis Maintenance Operations
-39. System Metrics & Monitoring
-40. Content Proxy Service
-41. Database Statistics & Analytics
-42. Redis Statistics & Analytics
-43. Streaming Embeddings
-44. Database Reset & Seeding
-45. User Role Management
-46. System Configuration Constraints
-47. Feed Article Deletion
-48. User Pattern Reset
-49. Category Reordering
-50. Feed Article Refresh
+27. Logging & Monitoring
+28. API Endpoints
+29. Database Operations
+30. Offline Support
+31. Error Handling & Logging
+32. Performance Optimization
+33. Analytics & Insights
+34. Search Query Templates
+35. Article Suggestions & Autocomplete
+36. Hybrid Search
+37. Memory Monitoring & Management
+38. Database Maintenance Operations
+39. Redis Maintenance Operations
+40. System Metrics & Monitoring
+41. Content Proxy Service
+42. Database Statistics & Analytics
+43. Redis Statistics & Analytics
+44. Streaming Embeddings
+45. Database Reset & Seeding
+46. User Role Management
+47. System Configuration Constraints
+48. Feed Article Deletion
+49. User Pattern Reset
+50. Category Reordering
+51. Feed Article Refresh
 
 Each feature is production-ready with comprehensive error handling, logging, monitoring, and optimization.
 
@@ -416,6 +431,13 @@ PROXY_REQUEST_TIMEOUT=30
 # Memory Monitoring
 ENABLE_MEMORY_MONITORING=true
 MEMORY_CHECK_INTERVAL=60
+
+# Logging
+LOG_LEVEL=INFO  # Options: DEBUG, INFO, WARNING, ERROR
+ENABLE_DEBUG_LOGGING=false  # Can be toggled by admins
+LOG_FORMAT=json  # Options: json, text
+LOG_RETENTION_DAYS=30
+MAX_LOG_FILE_SIZE_MB=100
 
 # Search Features
 ENABLE_HYBRID_SEARCH=true
